@@ -1,14 +1,10 @@
-FROM python:3.11-slim
-
-RUN pip install uv
+FROM python:3.10
 
 WORKDIR /app
 
-COPY pyproject.toml uv.lock ./
-
-RUN uv pip install --system --editable .
-
 COPY . .
+
+RUN pip install flask
 
 EXPOSE 8002
 
